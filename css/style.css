@@ -265,7 +265,7 @@ header .container {
 }
 
 .menu a {
-  font-family: "Inconsolata", serif;
+  font-family: 'ClashDisplay-Regular', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.6px;
 }
