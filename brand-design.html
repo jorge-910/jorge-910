@@ -11,16 +11,23 @@
       href="img/jorge_carrillo_favicon.png"
     />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="preload" href="fonts/ClashDisplay-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/ClashDisplay-Semibold.woff2" as="font" type="font/woff2" crossorigin />
+
   </head>
   <body>
     <header class="inici">
       <div class="container">
-        <a href="index.html"><img src="img/header-title.svg" /></a>
-        <img class="no-desk" id="boton-menu" src="img/icono-menu.svg" />
-        <nav class="menu">
+        <a href="index.html"><img src="img/header-title.svg" alt="Jorge Carrillo" /></a>
+        <button class="no-desk" id="boton-menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+          <img src="img/icono-menu.svg" alt="" />
+        </button>
+        <nav class="menu" id="menu" aria-label="Navegación principal">
           <ul>
             <li class="dreta">
-              <img class="no-desk" id="cierra-menu" src="img/cierra-menu.svg" />
+              <button class="no-desk" id="cierra-menu" aria-label="Cerrar menú">
+                <img src="img/cierra-menu.svg" alt="" />
+              </button>
             </li>
             <li><a href="index.html" class="smooth">Home</a></li>
             <li><a href="#cocunat" class="smooth">Work</a></li>
@@ -29,9 +36,10 @@
         </nav>
       </div>
     </header>
-    <div class="container descripcio-projecte">
-      <div class="informacio">
-        <h1>Brand</h1>
+    <main>
+      <div class="container descripcio-projecte">
+        <div class="informacio">
+          <h1>Brand</h1>
 <p><strong>Selección de proyectos de identidad visual</strong> desarrollados en contextos académicos y como freelance, con un enfoque <strong>conceptual y experimental</strong> del diseño de marca.</p>
 
 <p>1. Identidad desarrollada para el <strong>25 aniversario de la Escola d’Art i Disseny Serra i Abella</strong>, concebida de forma <strong>colaborativa</strong> a partir de un sistema gráfico <strong>flexible y adaptable</strong> a distintos soportes.</p>
@@ -42,50 +50,51 @@
 
 <p>4. Diseño de <strong>identidad visual y web</strong> para dos proyectos vinculados a la <strong>Universidad Politécnica de Cartagena</strong>, con un enfoque <strong>claro, funcional</strong> y orientado al <strong>entorno digital</strong>.</p>
 
-      </div>
-    </div>
-    <div class="container projectes margen">
-      <div class="projecte">
-        <div class="seccio">
-          <img src="img/projectes/brand/argent_00.jpg" alt="" />
-          <img src="img/projectes/brand/argent_02.jpg" alt="" />
-          <img src="img/projectes/brand/argent_03.jpg" alt="" />
-          <img src="img/projectes/brand/argent_05.jpg" alt="" />
-          <img src="img/projectes/brand/argent_07.jpg" alt="" />
-          <img src="img/projectes/brand/argent_09.jpg" alt="" />
-          <img src="img/projectes/brand/argent_11.jpg" alt="" />
-          <img src="img/projectes/brand/raval_01.jpg" alt="" />
-          <img src="img/projectes/brand/raval_02.jpg" alt="" />
-          <img src="img/projectes/brand/raval_03.jpg" alt="" />
-          <img src="img/projectes/brand/raval_04.jpg" alt="" />
-          <img src="img/projectes/brand/raval_05.jpg" alt="" />
-          <img src="img/projectes/brand/raval_06.jpg" alt="" />
-          <img src="img/projectes/brand/raval_07.jpg" alt="" />
-          <img src="img/projectes/brand/raval_08.jpg" alt="" />
-          <img src="img/projectes/brand/raval_09.jpg" alt="" />
-          <img src="img/projectes/brand/nogenere_01.jpg" alt="" />
-          <img src="img/projectes/brand/nogenere_02.jpg" alt="" />
-          <img src="img/projectes/brand/nogenere_03.jpg" alt="" />
-          <img src="img/projectes/brand/nogenere_04.jpg" alt="" />
-          <img src="img/projectes/brand/nogenere_05.jpg" alt="" />
-          <img src="img/projectes/brand/mmd_01.jpg" alt="" />
-          <img src="img/projectes/brand/mmd_02.jpg" alt="" />
-          <img src="img/projectes/brand/mmd_03.jpg" alt="" />
-          <img src="img/projectes/brand/merlin_01.jpg" alt="" />
-          <img src="img/projectes/brand/merlin_02.jpg" alt="" />
-          <img src="img/projectes/brand/merlin_03.jpg" alt="" />
-
         </div>
       </div>
-    </div>
+      <div class="container projectes margen">
+        <div class="projecte">
+          <div class="seccio">
+          <img src="img/projectes/brand/argent_00.jpg" alt="" / loading="lazy" decoding="async">
+          <img src="img/projectes/brand/argent_02.jpg" alt="" / loading="lazy" decoding="async">
+          <img src="img/projectes/brand/argent_03.jpg" alt="" / loading="lazy" decoding="async">
+          <img src="img/projectes/brand/argent_05.jpg" alt="" / loading="lazy" decoding="async">
+          <img src="img/projectes/brand/argent_07.jpg" alt="" / loading="lazy" decoding="async">
+          <img src="img/projectes/brand/argent_09.jpg" alt="" / loading="lazy" decoding="async">
+          <img src="img/projectes/brand/argent_11.jpg" alt="" / loading="lazy" decoding="async">
+          <img src="img/projectes/brand/raval_01.jpg" alt="" / loading="lazy" decoding="async">
+          <img src="img/projectes/brand/raval_02.jpg" alt="" / loading="lazy" decoding="async">
+          <img src="img/projectes/brand/raval_03.jpg" alt="" / loading="lazy" decoding="async">
+          <img src="img/projectes/brand/raval_04.jpg" alt="" / loading="lazy" decoding="async">
+          <img src="img/projectes/brand/raval_05.jpg" alt="" / loading="lazy" decoding="async">
+          <img src="img/projectes/brand/raval_06.jpg" alt="" / loading="lazy" decoding="async">
+          <img src="img/projectes/brand/raval_07.jpg" alt="" / loading="lazy" decoding="async">
+          <img src="img/projectes/brand/raval_08.jpg" alt="" / loading="lazy" decoding="async">
+          <img src="img/projectes/brand/raval_09.jpg" alt="" / loading="lazy" decoding="async">
+          <img src="img/projectes/brand/nogenere_01.jpg" alt="" / loading="lazy" decoding="async">
+          <img src="img/projectes/brand/nogenere_02.jpg" alt="" / loading="lazy" decoding="async">
+          <img src="img/projectes/brand/nogenere_03.jpg" alt="" / loading="lazy" decoding="async">
+          <img src="img/projectes/brand/nogenere_04.jpg" alt="" / loading="lazy" decoding="async">
+          <img src="img/projectes/brand/nogenere_05.jpg" alt="" / loading="lazy" decoding="async">
+          <img src="img/projectes/brand/mmd_01.jpg" alt="" / loading="lazy" decoding="async">
+          <img src="img/projectes/brand/mmd_02.jpg" alt="" / loading="lazy" decoding="async">
+          <img src="img/projectes/brand/mmd_03.jpg" alt="" / loading="lazy" decoding="async">
+          <img src="img/projectes/brand/merlin_01.jpg" alt="" / loading="lazy" decoding="async">
+          <img src="img/projectes/brand/merlin_02.jpg" alt="" / loading="lazy" decoding="async">
+          <img src="img/projectes/brand/merlin_03.jpg" alt="" / loading="lazy" decoding="async">
+
+          </div>
+        </div>
+      </div>
+    </main>
     <!-- ------------FOOTER------------ -->
     <footer>
       <div class="container">
-        <a href="mailto:hola@jorgecarrillo.cat" target="_blank"
+        <a href="mailto:hola@jorgecarrillo.cat" target="_blank" rel="noopener noreferrer"
           ><p>hola@jorgecarrillo.cat</p></a
         >
         <p>Copyright © 2020 Jorge Carrillo</p>
-        <a href="https://goo.gl/maps/RdUe4Zqo9YeqmYZq7" target="_blank"
+        <a href="https://goo.gl/maps/RdUe4Zqo9YeqmYZq7" target="_blank" rel="noopener noreferrer"
           ><p>08013 Barcelona, Catalunya</p></a
         >
       </div>

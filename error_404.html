@@ -11,16 +11,23 @@
       href="img/jorge_carrillo_favicon.png"
     />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="preload" href="fonts/ClashDisplay-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/ClashDisplay-Semibold.woff2" as="font" type="font/woff2" crossorigin />
+
   </head>
   <body>
     <div class="header inici">
       <div class="container-header">
-        <a href="index.html"><img src="img/marca_jorgecarrillo.svg" /></a>
-        <img class="no-desk" id="boton-menu" src="img/icono-menu.svg" />
-        <div class="menu">
+        <a href="index.html"><img src="img/marca_jorgecarrillo.svg" alt="Jorge Carrillo" /></a>
+        <button class="no-desk" id="boton-menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+          <img src="img/icono-menu.svg" alt="" />
+        </button>
+        <nav class="menu" id="menu" aria-label="Navegación principal">
           <ul>
             <li class="dreta">
-              <img class="no-desk" id="cierra-menu" src="img/cierra-menu.svg" />
+              <button class="no-desk" id="cierra-menu" aria-label="Cerrar menú">
+                <img src="img/cierra-menu.svg" alt="" />
+              </button>
             </li>
             <li><a href="index.html#online" class="smooth">online.</a></li>
             <li><a href="index.html#branding" class="smooth">branding.</a></li>
@@ -28,10 +35,10 @@
             <li><a href="index.html#audiovisual" class="smooth">audiovisual.</a></li>
             <li><a href="about.html" class="smooth">about.</a></li>
           </ul>
-        </div>
+        </nav>
       </div>
     </div>
-    <div class="container inici">
+    <main class="container inici">
       <!-- ------------INTRO------------ -->
       <div class="intro blau">
         <div class="hola">
@@ -42,17 +49,17 @@
               Em sap greu,<br>
               però no he trobat aquesta página<br />Si vols, pots tornar al inici :)
             </p>
-          </div>
+    </main>
         </div>
       </div>
             <!-- ------------FOOTER------------ -->
     <footer>
       <div class="container">
-        <a href="mailto:hola@jorgecarrillo.cat" target="_blank"
+        <a href="mailto:hola@jorgecarrillo.cat" target="_blank" rel="noopener noreferrer"
           ><p>hola@jorgecarrillo.cat</p></a
         >
         <p>Copyright © 2020 Jorge Carrillo</p>
-        <a href="https://goo.gl/maps/RdUe4Zqo9YeqmYZq7" target="_blank"
+        <a href="https://goo.gl/maps/RdUe4Zqo9YeqmYZq7" target="_blank" rel="noopener noreferrer"
           ><p>08013 Barcelona, Catalunya</p></a
         >
       </div>
@@ -60,7 +67,6 @@
     <!-- ------------JS------------ -->
     <script src="js/navegacion-scroll.js"></script>
     <script src="js/menu-responsive.js"></script>
-    <script src="js/treballs-ocults.js"></script>
     <script src="js/scroll-suave.js"></script>
   </body>
 </html>

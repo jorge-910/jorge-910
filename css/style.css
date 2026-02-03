@@ -1,8 +1,7 @@
 @font-face {
   font-family: 'ClashDisplay-Regular';
   src: url('../fonts/ClashDisplay-Regular.woff2') format('woff2'),
-       url('../fonts/ClashDisplay-Regular.woff') format('woff'),
-       url('../fonts/ClashDisplay-Regular.ttf') format('truetype');
+       url('../fonts/ClashDisplay-Regular.woff') format('woff');
   font-weight: 400;
   font-display: swap;
   font-style: normal;
@@ -11,8 +10,7 @@
 @font-face {
   font-family: 'ClashDisplay-Semibold';
   src: url('../fonts/ClashDisplay-Semibold.woff2') format('woff2'),
-       url('../fonts/ClashDisplay-Semibold.woff') format('woff'),
-       url('../fonts/ClashDisplay-Semibold.ttf') format('truetype');
+       url('../fonts/ClashDisplay-Semibold.woff') format('woff');
   font-weight: 600;
   font-display: swap;
   font-style: normal;
@@ -73,27 +71,28 @@ p {
 }
 
 h1 {
-  font-size: 128px;
+  font-size: clamp(56px, 8vw, 128px);
+  line-height: 1.05;
 }
 
 h2 {
-  font-size: 48px;
+  font-size: clamp(32px, 4.2vw, 48px);
 }
 
 h3 {
-  font-size: 32px;
+  font-size: clamp(24px, 3vw, 32px);
 }
 
 h4 {
-  font-size: 24px;
+  font-size: clamp(18px, 2.4vw, 24px);
 }
 
 h5 {
-  font-size: 20px;
+  font-size: clamp(16px, 2vw, 20px);
 }
 
 p {
-  font-size: 16px;
+  font-size: clamp(15px, 1.6vw, 16px);
   line-height: 1.3em;
 }
 
@@ -293,7 +292,19 @@ header .container img {
   width: 48px;
 }
 
-@media (min-width: 850px) {
+#boton-menu,
+#cierra-menu {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+#boton-menu img,
+#cierra-menu img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* ------ INTRO ------ */
@@ -595,7 +606,7 @@ header .container img {
   margin-top: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-column-gap: 16px;
+  grid-gap: 24px;
   grid-area: treballs;
   min-height: 100px;
 }
@@ -622,10 +633,6 @@ header .container img {
 
 .visible {
   display: flex;
-}
-
-.fletxa.dreta {
-  transform: rotate(45deg);
 }
 
 .descripcio {
@@ -794,6 +801,11 @@ header .container img {
   .statics-grid{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .about-text{ grid-column: 1 / -1; }
+  .about-more{ grid-column: 1 / -1; }
+
+  .services-header{ grid-column: 1 / -1; }
+  .services-grid{ grid-column: 1 / -1; }
 }
 
 /* --- MOBILE --- */
@@ -814,6 +826,10 @@ header .container img {
   }
   .videos-grid > video{
     max-width: 100%;
+  }
+  .services-grid{ grid-template-columns: 1fr; }
+  .hola .imatge img{
+    width: 200%;
   }
 }
 

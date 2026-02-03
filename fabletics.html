@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,16 +11,23 @@
       href="img/jorge_carrillo_favicon.png"
     />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="preload" href="fonts/ClashDisplay-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/ClashDisplay-Semibold.woff2" as="font" type="font/woff2" crossorigin />
+
   </head>
   <body>
     <header class="inici scroll">
       <div class="container">
-        <a href="index.html"><img src="img/header-title.svg" /></a>
-        <img class="no-desk" id="boton-menu" src="img/icono-menu.svg" />
-        <nav class="menu">
+        <a href="index.html"><img src="img/header-title.svg" alt="Jorge Carrillo" /></a>
+        <button class="no-desk" id="boton-menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+          <img src="img/icono-menu.svg" alt="" />
+        </button>
+        <nav class="menu" id="menu" aria-label="Navegación principal">
           <ul>
             <li class="dreta">
-              <img class="no-desk" id="cierra-menu" src="img/cierra-menu.svg" />
+              <button class="no-desk" id="cierra-menu" aria-label="Cerrar menú">
+                <img src="img/cierra-menu.svg" alt="" />
+              </button>
             </li>
             <li><a href="index.html" class="smooth">Home</a></li>
             <li><a href="index.html" class="smooth">Work</a></li>
@@ -29,9 +36,10 @@
         </nav>
       </div>
     </header>
-    <div class="container descripcio-projecte">
-      <div class="informacio">
-        <h1>Fabletics</h1>
+    <main>
+      <div class="container descripcio-projecte">
+        <div class="informacio">
+          <h1>Fabletics</h1>
         <p>Trabajo desarrollado como <strong>diseñador y editor de vídeo</strong> dentro del equipo de <strong>paid
             media</strong> de Fabletics, marca de <strong>ropa deportiva</strong> con foco principal en el mercado femenino
           europeo.</p>
@@ -45,11 +53,11 @@
         <p>Trabajo orientado a <strong>performance</strong>, colaborando con el equipo de paid media para optimizar piezas en
           función de <strong>objetivos comerciales</strong> y comportamiento del usuario.</p>
       
+        </div>
       </div>
-    </div>
-    <div class="container projectes">
-      <div class="projecte">
-        <div class="seccio">
+      <div class="container projectes">
+        <div class="projecte">
+          <div class="seccio">
           <h2>YouTube</h2>
           <video src="img/projectes/fabletics/fabletics_video_02.mp4" controls preload="metadata">
           </video>
@@ -77,31 +85,32 @@
             <h2>Meta (estáticos)</h2>
           
             <div class="statics-grid">
-              <img src="img/projectes/fabletics/fabletics_img_01.jpg" alt="" />
-              <img src="img/projectes/fabletics/fabletics_img_02.jpg" alt="" />
-              <img src="img/projectes/fabletics/fabletics_img_03.jpg" alt="" />
-              <img src="img/projectes/fabletics/fabletics_img_04.jpg" alt="" />
-              <img src="img/projectes/fabletics/fabletics_img_05.jpg" alt="" />
-              <img src="img/projectes/fabletics/fabletics_img_06.jpg" alt="" />
-              <img src="img/projectes/fabletics/fabletics_img_07.jpg" alt="" />
-              <img src="img/projectes/fabletics/fabletics_img_08.jpg" alt="" />
-              <img src="img/projectes/fabletics/fabletics_img_09.jpg" alt="" />
-              <img src="img/projectes/fabletics/fabletics_img_10.jpg" alt="" />
-              <img src="img/projectes/fabletics/fabletics_img_11.png" alt="" />
-              <img src="img/projectes/fabletics/fabletics_img_12.png" alt="" />
+              <img src="img/projectes/fabletics/fabletics_img_01.jpg" alt="" / loading="lazy" decoding="async">
+              <img src="img/projectes/fabletics/fabletics_img_02.jpg" alt="" / loading="lazy" decoding="async">
+              <img src="img/projectes/fabletics/fabletics_img_03.jpg" alt="" / loading="lazy" decoding="async">
+              <img src="img/projectes/fabletics/fabletics_img_04.jpg" alt="" / loading="lazy" decoding="async">
+              <img src="img/projectes/fabletics/fabletics_img_05.jpg" alt="" / loading="lazy" decoding="async">
+              <img src="img/projectes/fabletics/fabletics_img_06.jpg" alt="" / loading="lazy" decoding="async">
+              <img src="img/projectes/fabletics/fabletics_img_07.jpg" alt="" / loading="lazy" decoding="async">
+              <img src="img/projectes/fabletics/fabletics_img_08.jpg" alt="" / loading="lazy" decoding="async">
+              <img src="img/projectes/fabletics/fabletics_img_09.jpg" alt="" / loading="lazy" decoding="async">
+              <img src="img/projectes/fabletics/fabletics_img_10.jpg" alt="" / loading="lazy" decoding="async">
+              <img src="img/projectes/fabletics/fabletics_img_11.png" alt="" / loading="lazy" decoding="async">
+              <img src="img/projectes/fabletics/fabletics_img_12.png" alt="" / loading="lazy" decoding="async">
             </div>
           </div>
           
           </div>
-    </div>
+      </div>
+    </main>
     <!-- ------------FOOTER------------ -->
     <footer>
       <div class="container">
-        <a href="mailto:hola@jorgecarrillo.cat" target="_blank"
+        <a href="mailto:hola@jorgecarrillo.cat" target="_blank" rel="noopener noreferrer"
           ><p>hola@jorgecarrillo.cat</p></a
         >
         <p>Copyright © 2020 Jorge Carrillo</p>
-        <a href="https://goo.gl/maps/RdUe4Zqo9YeqmYZq7" target="_blank"
+        <a href="https://goo.gl/maps/RdUe4Zqo9YeqmYZq7" target="_blank" rel="noopener noreferrer"
           ><p>08013 Barcelona, Catalunya</p></a
         >
       </div>

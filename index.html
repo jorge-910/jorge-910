@@ -11,17 +11,24 @@
       href="img/jorge_carrillo_favicon.png"
     />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="preload" href="fonts/ClashDisplay-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/ClashDisplay-Semibold.woff2" as="font" type="font/woff2" crossorigin />
+
 
   </head>
   <body>
     <header class="inici">
       <div class="container">
-        <a href="index.html"><img src="img/header-title.svg" /></a>
-        <img class="no-desk" id="boton-menu" src="img/icono-menu.svg" />
-        <nav class="menu">
+        <a href="index.html"><img src="img/header-title.svg" alt="Jorge Carrillo" /></a>
+        <button class="no-desk" id="boton-menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+          <img src="img/icono-menu.svg" alt="" />
+        </button>
+        <nav class="menu" id="menu" aria-label="Navegación principal">
           <ul>
             <li class="dreta">
-              <img class="no-desk" id="cierra-menu" src="img/cierra-menu.svg" />
+              <button class="no-desk" id="cierra-menu" aria-label="Cerrar menú">
+                <img src="img/cierra-menu.svg" alt="" />
+              </button>
             </li>
             <li><a href="index.html" class="smooth">Home</a></li>
             <li><a href="#cocunat" class="smooth">Work</a></li>
@@ -41,7 +48,7 @@
               <h5>Barcelona & Madrid</h5>
             </div>
             <div class="imatge">
-              <img src="img/section-hero.png" />
+              <img src="img/section-hero.png" alt="Retrato de Jorge Carrillo" />
             </div>
             <section class="about-header">
               <div class="about-text">
@@ -98,16 +105,16 @@
         </div>
         <div class="contenidor-treballs">
             <div class="treball">
-              <img src="img/inici/cocunat-image-1.png" />
+              <img src="img/inici/cocunat-image-1.png" alt="Cocunat — pieza 1" / loading="lazy" decoding="async">
             </div>
             <div class="treball">
-              <img src="img/inici/cocunat-image-2.png" />
+              <img src="img/inici/cocunat-image-2.png" alt="Cocunat — pieza 2" / loading="lazy" decoding="async">
             </div>
             <div class="treball">
-              <img src="img/inici/cocunat-image-3.png" />
+              <img src="img/inici/cocunat-image-3.png" alt="Cocunat — pieza 3" / loading="lazy" decoding="async">
             </div>
             <div class="treball">
-              <img src="img/inici/cocunat-image-4.png" />
+              <img src="img/inici/cocunat-image-4.png" alt="Cocunat — pieza 4" / loading="lazy" decoding="async">
             </div>
         </div>
 
@@ -125,16 +132,16 @@
         </div>
        <div class="contenidor-treballs">
             <div class="treball">
-              <img src="img/inici/fabletics-image-1.png" />
+              <img src="img/inici/fabletics-image-1.png" alt="Fabletics — pieza 1" / loading="lazy" decoding="async">
             </div>
             <div class="treball">
-              <img src="img/inici/fabletics-image-2.png" />
+              <img src="img/inici/fabletics-image-2.png" alt="Fabletics — pieza 2" / loading="lazy" decoding="async">
             </div>
             <div class="treball">
-              <img src="img/inici/fabletics-image-3.png" />
+              <img src="img/inici/fabletics-image-3.png" alt="Fabletics — pieza 3" / loading="lazy" decoding="async">
             </div>
             <div class="treball">
-              <img src="img/inici/fabletics-image-4.png" />
+              <img src="img/inici/fabletics-image-4.png" alt="Fabletics — pieza 4" / loading="lazy" decoding="async">
             </div>
         </div>
 
@@ -152,16 +159,16 @@
         </div>
          <div class="contenidor-treballs">
             <div class="treball">
-              <img src="img/inici/psc-image-1.png" />
+              <img src="img/inici/psc-image-1.png" alt="PSC — pieza 1" / loading="lazy" decoding="async">
             </div>
             <div class="treball">
-              <img src="img/inici/psc-image-2.png" />
+              <img src="img/inici/psc-image-2.png" alt="PSC — pieza 2" / loading="lazy" decoding="async">
             </div>
             <div class="treball">
-              <img src="img/inici/psc-image-3.png" />
+              <img src="img/inici/psc-image-3.png" alt="PSC — pieza 3" / loading="lazy" decoding="async">
             </div>
             <div class="treball">
-              <img src="img/inici/psc-image-4.png" />
+              <img src="img/inici/psc-image-4.png" alt="PSC — pieza 4" / loading="lazy" decoding="async">
             </div>
         </div>
 
@@ -178,16 +185,16 @@
         </div>
         <div class="contenidor-treballs">
             <div class="treball">
-              <img src="img/inici/affinity-image-1.png" />
+              <img src="img/inici/affinity-image-1.png" alt="Affinity — pieza 1" / loading="lazy" decoding="async">
             </div>
             <div class="treball">
-              <img src="img/inici/affinity-image-2.png" />
+              <img src="img/inici/affinity-image-2.png" alt="Affinity — pieza 2" / loading="lazy" decoding="async">
             </div>
             <div class="treball">
-              <img src="img/inici/affinity-image-3.png" />
+              <img src="img/inici/affinity-image-3.png" alt="Affinity — pieza 3" / loading="lazy" decoding="async">
             </div>
             <div class="treball">
-              <img src="img/inici/affinity-image-4.png" />
+              <img src="img/inici/affinity-image-4.png" alt="Affinity — pieza 4" / loading="lazy" decoding="async">
             </div>
         </div>
 
@@ -204,16 +211,16 @@
         </div>
         <div class="contenidor-treballs">
             <div class="treball">
-              <img src="img/inici/brand-image-1.png" />
+              <img src="img/inici/brand-image-1.png" alt="Brand Design — pieza 1" / loading="lazy" decoding="async">
             </div>
             <div class="treball">
-              <img src="img/inici/brand-image-2.png" />
+              <img src="img/inici/brand-image-2.png" alt="Brand Design — pieza 2" / loading="lazy" decoding="async">
             </div>
             <div class="treball">
-              <img src="img/inici/brand-image-3.png" />
+              <img src="img/inici/brand-image-3.png" alt="Brand Design — pieza 3" / loading="lazy" decoding="async">
             </div>
             <div class="treball">
-              <img src="img/inici/brand-image-4.png" />
+              <img src="img/inici/brand-image-4.png" alt="Brand Design — pieza 4" / loading="lazy" decoding="async">
             </div>
         </div>
 
@@ -227,11 +234,11 @@
     <!-- ------------FOOTER------------ -->
     <footer>
       <div class="container">
-        <a href="mailto:jorgecarrillo.design@gmail.com" target="_blank"
+        <a href="mailto:jorgecarrillo.design@gmail.com" target="_blank" rel="noopener noreferrer"
           ><p>jorgecarrillo.design@gmail.com</p></a
         >
         <p>Copyright © 2025 Jorge Carrillo</p>
-        <a href="https://goo.gl/maps/RdUe4Zqo9YeqmYZq7" target="_blank"
+        <a href="https://goo.gl/maps/RdUe4Zqo9YeqmYZq7" target="_blank" rel="noopener noreferrer"
           ><p>08015 Barcelona, Catalunya</p></a
         >
       </div>
@@ -239,7 +246,6 @@
     <!-- ------------JS------------ -->
     <script src="js/navegacion-scroll.js"></script>
     <script src="js/menu-responsive.js"></script>
-    <script src="js/treballs-ocults.js"></script>
     <script src="js/scroll-suave.js"></script>
   </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,16 +11,23 @@
       href="img/jorge_carrillo_favicon.png"
     />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="preload" href="fonts/ClashDisplay-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/ClashDisplay-Semibold.woff2" as="font" type="font/woff2" crossorigin />
+
   </head>
   <body>
         <header class="inici scroll">
           <div class="container">
-            <a href="index.html"><img src="img/header-title.svg" /></a>
-            <img class="no-desk" id="boton-menu" src="img/icono-menu.svg" />
-            <nav class="menu">
+            <a href="index.html"><img src="img/header-title.svg" alt="Jorge Carrillo" /></a>
+            <button class="no-desk" id="boton-menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+              <img src="img/icono-menu.svg" alt="" />
+            </button>
+            <nav class="menu" id="menu" aria-label="Navegación principal">
               <ul>
                 <li class="dreta">
-                  <img class="no-desk" id="cierra-menu" src="img/cierra-menu.svg" />
+                  <button class="no-desk" id="cierra-menu" aria-label="Cerrar menú">
+                    <img src="img/cierra-menu.svg" alt="" />
+                  </button>
                 </li>
                 <li><a href="index.html" class="smooth">Home</a></li>
                 <li><a href="index.html" class="smooth">Work</a></li>
@@ -29,7 +36,7 @@
             </nav>
           </div>
         </header>
-    <div class="container about">
+    <main class="container about">
       <div class="titol-about">
         <h1>About</h1>
       </div>
@@ -198,7 +205,7 @@
         </div>
        
       </div>
-    </div>
+    </main>
     <script src="js/menu-responsive.js"></script>
   </body>
 </html>
