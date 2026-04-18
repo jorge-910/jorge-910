@@ -150,7 +150,21 @@ async function swapRecipe(index) {
   render();
 }
 
-function confirmMenu() {
+async function confirmMenu() {
+  try {
+    await fetch(API_BASE + '/confirmar-menu', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        semana: state.semana,
+        receta_1_id: state.recetas[0] ? state.recetas[0].id : '',
+        receta_2_id: state.recetas[1] ? state.recetas[1].id : '',
+        receta_3_id: state.recetas[2] ? state.recetas[2].id : '',
+      }),
+    });
+  } catch (e) {
+    console.error('Error al confirmar:', e);
+  }
   state.confirmed = true;
   state.estado = 'confirmado';
   state.showList = true;
