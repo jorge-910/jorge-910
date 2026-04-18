@@ -3,40 +3,66 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Cocunat</title>
-    <link
-      rel="shortcut icon"
-      type="image/png"
-      href="img/jorge_carrillo_favicon.png"
-    />
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <title>Cocunat — Creative AI Implementation | Jorge Carrillo</title>
+    <meta name="description" content="Proyecto Cocunat: producción de anuncios de alto impacto para Meta, TikTok y YouTube en 5 mercados globales, con implementación de IA generativa (voice over, lipsync, b-roll, traducción)." />
+    <meta name="author" content="Jorge Carrillo" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://jcarrillo.eu/cocunat.html" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://jcarrillo.eu/cocunat.html" />
+    <meta property="og:title" content="Cocunat — Creative AI Implementation | Jorge Carrillo" />
+    <meta property="og:description" content="Anuncios de alto impacto para Meta, TikTok y YouTube en 5 mercados. IA generativa integrada en el flujo de producción." />
+    <meta property="og:image" content="https://jcarrillo.eu/img/inici/cocunat-image-1.png" />
+    <meta property="og:locale" content="es_ES" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cocunat — Creative AI | Jorge Carrillo" />
+    <meta name="twitter:image" content="https://jcarrillo.eu/img/inici/cocunat-image-1.png" />
+    <!-- Favicon & Manifest -->
+    <link rel="icon" type="image/png" href="img/jorge_carrillo_favicon.png" />
+    <link rel="manifest" href="manifest.json" />
+    <!-- Fuentes críticas -->
     <link rel="preload" href="fonts/ClashDisplay-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="fonts/ClashDisplay-Semibold.woff2" as="font" type="font/woff2" crossorigin />
-
+    <!-- Estilos -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- JSON-LD: CreativeWork -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Cocunat — Creative AI Implementation",
+      "creator": { "@type": "Person", "name": "Jorge Carrillo" },
+      "description": "Producción de anuncios de alto impacto para Meta, TikTok y YouTube en 5 mercados globales con IA generativa.",
+      "url": "https://jcarrillo.eu/cocunat.html",
+      "keywords": ["Paid Social", "Creative AI", "Motion Graphics", "Meta Ads", "TikTok", "YouTube"]
+    }
+    </script>
   </head>
   <body>
     <header class="inici scroll">
       <div class="container">
-        <a href="index.html"><img src="img/header-title.svg" alt="Jorge Carrillo" /></a>
-        <button class="no-desk" id="boton-menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
-          <img src="img/icono-menu.svg" alt="" />
+        <a href="index.html"><img src="img/header-title.svg" alt="Jorge Carrillo — inicio" width="220" height="28" /></a>
+        <button class="no-desk" id="boton-menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú de navegación">
+          <img src="img/icono-menu.svg" alt="" role="presentation" width="36" height="36" />
         </button>
         <nav class="menu" id="menu" aria-label="Navegación principal">
           <ul>
             <li class="dreta">
-              <button class="no-desk" id="cierra-menu" aria-label="Cerrar menú">
-                <img src="img/cierra-menu.svg" alt="" />
+              <button class="no-desk" id="cierra-menu" aria-label="Cerrar menú de navegación">
+                <img src="img/cierra-menu.svg" alt="" role="presentation" width="48" height="48" />
               </button>
             </li>
-            <li><a href="index.html" class="smooth">Home</a></li>
-            <li><a href="index.html" class="smooth">Work</a></li>
-            <li><a href="about.html" class="smooth">About</a></li>
-          <li><a href="/en/cocunat.html" class="lang-switch">EN</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">Work</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="/en/cocunat.html" class="lang-switch" hreflang="en" aria-label="Switch to English version">EN</a></li>
           </ul>
         </nav>
       </div>
     </header>
+
     <main>
       <div class="container descripcio-projecte">
         <div class="informacio">
@@ -64,70 +90,65 @@
           </p>
         </div>
       </div>
+
       <div class="container projectes">
         <div class="projecte">
+
           <div class="seccio">
-          <h2>YouTube</h2>
-          <video src="img/projectes/cocunat/cocunat_yt_01.mp4" controls preload="metadata">
-          </video>
-          <video src="img/projectes/cocunat/cocunat_yt_02.mp4" controls preload="metadata">
-          </video>
-          <video src="img/projectes/cocunat/cocunat_yt_03.mp4" controls preload="metadata">
-        </div>
-        <div class="seccio seccio--stories">
-          <h2>Instagram Stories</h2>
-        <video src="img/projectes/cocunat/cocunat_brand_01.mp4" controls preload="metadata">
-          </video>
-          <video src="img/projectes/cocunat/cocunat_brand_02.mp4" controls preload="metadata">
-          </video>
-          <video src="img/projectes/cocunat/cocunat_brand_03.mp4" controls preload="metadata">
-          </video>
-          <video src="img/projectes/cocunat/cocunat_brand_04.mp4" controls preload="metadata">
-          </video>
-          <video src="img/projectes/cocunat/cocunat_brand_05.mp4" controls preload="metadata">
-          </video>
+            <h2>YouTube</h2>
+            <video src="img/projectes/cocunat/cocunat_yt_01.mp4" controls preload="metadata" aria-label="Cocunat — vídeo YouTube 1"></video>
+            <video src="img/projectes/cocunat/cocunat_yt_02.mp4" controls preload="metadata" aria-label="Cocunat — vídeo YouTube 2"></video>
+            <video src="img/projectes/cocunat/cocunat_yt_03.mp4" controls preload="metadata" aria-label="Cocunat — vídeo YouTube 3"></video>
           </div>
+
           <div class="seccio seccio--stories">
-          <h2>Instagram UGC</h2>
-        <video src="img/projectes/cocunat/cocunat_ugc_01.mp4" controls preload="metadata">
-          </video>
-          <video src="img/projectes/cocunat/cocunat_ugc_02.mp4" controls preload="metadata">
-          </video>
-          <video src="img/projectes/cocunat/cocunat_ugc_03.mp4" controls preload="metadata">
-          </video>
-          <video src="img/projectes/cocunat/cocunat_ugc_04.mp4" controls preload="metadata">
-          </video>
-          <video src="img/projectes/cocunat/cocunat_ugc_05.mp4" controls preload="metadata">
-          </video>
+            <h2>Instagram Stories</h2>
+            <video src="img/projectes/cocunat/cocunat_brand_01.mp4" controls preload="metadata" aria-label="Cocunat — Instagram Story 1"></video>
+            <video src="img/projectes/cocunat/cocunat_brand_02.mp4" controls preload="metadata" aria-label="Cocunat — Instagram Story 2"></video>
+            <video src="img/projectes/cocunat/cocunat_brand_03.mp4" controls preload="metadata" aria-label="Cocunat — Instagram Story 3"></video>
+            <video src="img/projectes/cocunat/cocunat_brand_04.mp4" controls preload="metadata" aria-label="Cocunat — Instagram Story 4"></video>
+            <video src="img/projectes/cocunat/cocunat_brand_05.mp4" controls preload="metadata" aria-label="Cocunat — Instagram Story 5"></video>
           </div>
+
+          <div class="seccio seccio--stories">
+            <h2>Instagram UGC</h2>
+            <video src="img/projectes/cocunat/cocunat_ugc_01.mp4" controls preload="metadata" aria-label="Cocunat — UGC 1"></video>
+            <video src="img/projectes/cocunat/cocunat_ugc_02.mp4" controls preload="metadata" aria-label="Cocunat — UGC 2"></video>
+            <video src="img/projectes/cocunat/cocunat_ugc_03.mp4" controls preload="metadata" aria-label="Cocunat — UGC 3"></video>
+            <video src="img/projectes/cocunat/cocunat_ugc_04.mp4" controls preload="metadata" aria-label="Cocunat — UGC 4"></video>
+            <video src="img/projectes/cocunat/cocunat_ugc_05.mp4" controls preload="metadata" aria-label="Cocunat — UGC 5"></video>
+          </div>
+
           <div class="seccio seccio--statics">
             <h2>Meta (estáticos)</h2>
-          
             <div class="statics-grid">
-              <img src="img/projectes/cocunat/cocunat_img_01.jpg" alt="" / loading="lazy" decoding="async">
-              <img src="img/projectes/cocunat/cocunat_img_02.jpg" alt="" / loading="lazy" decoding="async">
-              <img src="img/projectes/cocunat/cocunat_img_03.jpg" alt="" / loading="lazy" decoding="async">
-              <img src="img/projectes/cocunat/cocunat_img_04.jpg" alt="" / loading="lazy" decoding="async">
-              <img src="img/projectes/cocunat/cocunat_img_05.jpg" alt="" / loading="lazy" decoding="async">
-              <img src="img/projectes/cocunat/cocunat_img_06.jpg" alt="" / loading="lazy" decoding="async">
+              <!-- Candidatos para conversión a WebP con fallback PNG/JPG -->
+              <img src="img/projectes/cocunat/cocunat_img_01.jpg" alt="Cocunat — anuncio estático Meta 1" loading="lazy" decoding="async" />
+              <img src="img/projectes/cocunat/cocunat_img_02.jpg" alt="Cocunat — anuncio estático Meta 2" loading="lazy" decoding="async" />
+              <img src="img/projectes/cocunat/cocunat_img_03.jpg" alt="Cocunat — anuncio estático Meta 3" loading="lazy" decoding="async" />
+              <img src="img/projectes/cocunat/cocunat_img_04.jpg" alt="Cocunat — anuncio estático Meta 4" loading="lazy" decoding="async" />
+              <img src="img/projectes/cocunat/cocunat_img_05.jpg" alt="Cocunat — anuncio estático Meta 5" loading="lazy" decoding="async" />
+              <img src="img/projectes/cocunat/cocunat_img_06.jpg" alt="Cocunat — anuncio estático Meta 6" loading="lazy" decoding="async" />
             </div>
           </div>
-          
-          </div>
+
+        </div>
       </div>
     </main>
-    <!-- ------------FOOTER------------ -->
+
+    <!-- FOOTER -->
     <footer>
       <div class="container">
-        <a href="mailto:jorgecarrillo.design@gmail.com" target="_blank" rel="noopener noreferrer"
-          ><p>jorgecarrillo.design@gmail.com</p></a
-        >
-        <p>Copyright © 2026 Jorge Carrillo</p>
-        <a href="https://goo.gl/maps/RdUe4Zqo9YeqmYZq7" target="_blank" rel="noopener noreferrer"
-          ><p>Barcelona / Madrid</p></a
-        >
+        <a href="mailto:jorgecarrillo.design@gmail.com" target="_blank" rel="noopener noreferrer">
+          <p>jorgecarrillo.design@gmail.com</p>
+        </a>
+        <p>Copyright &copy; 2026 Jorge Carrillo</p>
+        <a href="https://goo.gl/maps/RdUe4Zqo9YeqmYZq7" target="_blank" rel="noopener noreferrer" aria-label="Localización: Barcelona y Madrid">
+          <p>Barcelona / Madrid</p>
+        </a>
       </div>
     </footer>
-    <script src="js/menu-responsive.js"></script>
+
+    <script src="js/main.js" defer></script>
   </body>
 </html>

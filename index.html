@@ -3,102 +3,142 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Jorge Carrillo | Diseño digital</title>
-    <link
-      rel="shortcut icon"
-      type="image/png"
-      href="img/jorge_carrillo_favicon.png"
-    />
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <title>Jorge Carrillo | Senior Creative Technologist · Barcelona</title>
+    <meta name="description" content="Portfolio de Jorge Carrillo, Senior Creative Technologist con más de 8 años de experiencia en diseño digital, vídeo, motion graphics e Inteligencia Artificial para marcas globales como Fabletics y Cocunat." />
+    <meta name="keywords" content="Jorge Carrillo, diseño digital, Creative Technologist, motion graphics, inteligencia artificial, Paid Social, UX/UI, vídeo, Barcelona, Fabletics, Cocunat" />
+    <meta name="author" content="Jorge Carrillo" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://jcarrillo.eu/" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jcarrillo.eu/" />
+    <meta property="og:title" content="Jorge Carrillo | Senior Creative Technologist" />
+    <meta property="og:description" content="Portfolio de Jorge Carrillo. Diseño digital, vídeo, motion graphics e IA para marcas globales." />
+    <meta property="og:image" content="https://jcarrillo.eu/img/section-hero.png" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:site_name" content="Jorge Carrillo Portfolio" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Jorge Carrillo | Senior Creative Technologist" />
+    <meta name="twitter:description" content="Portfolio de Jorge Carrillo. Diseño digital, vídeo e IA para marcas globales." />
+    <meta name="twitter:image" content="https://jcarrillo.eu/img/section-hero.png" />
+    <!-- Favicon & Manifest -->
+    <link rel="icon" type="image/png" href="img/jorge_carrillo_favicon.png" />
+    <link rel="manifest" href="manifest.json" />
+    <!-- Fuentes críticas: preload woff2 (solo los 2 pesos usados) -->
     <link rel="preload" href="fonts/ClashDisplay-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="fonts/ClashDisplay-Semibold.woff2" as="font" type="font/woff2" crossorigin />
-
-
+    <!-- Estilos -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- JSON-LD: Persona + Portfolio -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Jorge Carrillo",
+      "jobTitle": "Senior Creative Technologist",
+      "url": "https://jcarrillo.eu",
+      "email": "jorgecarrillo.design@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Barcelona",
+        "addressCountry": "ES"
+      },
+      "knowsAbout": [
+        "Diseño Digital", "Motion Graphics", "Inteligencia Artificial",
+        "Paid Social", "UX/UI", "Video Editing", "Creative Automation"
+      ],
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Senior Creative Technologist"
+      }
+    }
+    </script>
   </head>
   <body>
     <header class="inici">
       <div class="container">
-        <a href="index.html"><img src="img/header-title.svg" alt="Jorge Carrillo" /></a>
-        <button class="no-desk" id="boton-menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
-          <img src="img/icono-menu.svg" alt="" />
+        <a href="index.html"><img src="img/header-title.svg" alt="Jorge Carrillo — inicio" width="220" height="28" /></a>
+        <button class="no-desk" id="boton-menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú de navegación">
+          <img src="img/icono-menu.svg" alt="" role="presentation" width="36" height="36" />
         </button>
         <nav class="menu" id="menu" aria-label="Navegación principal">
           <ul>
             <li class="dreta">
-              <button class="no-desk" id="cierra-menu" aria-label="Cerrar menú">
-                <img src="img/cierra-menu.svg" alt="" />
+              <button class="no-desk" id="cierra-menu" aria-label="Cerrar menú de navegación">
+                <img src="img/cierra-menu.svg" alt="" role="presentation" width="48" height="48" />
               </button>
             </li>
-            <li><a href="index.html" class="smooth">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="#cocunat" class="smooth">Work</a></li>
-            <li><a href="about.html" class="smooth">About</a></li>
-          <li><a href="/en/index.html" class="lang-switch">EN</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="/en/index.html" class="lang-switch" hreflang="en" aria-label="Switch to English version">EN</a></li>
           </ul>
         </nav>
       </div>
     </header>
+
     <main class="container inici">
-      <!-- ------------INTRO------------ -->
+      <!-- INTRO -->
       <div class="intro">
         <div class="hola">
           <div class="container">
             <div class="text">
               <h1>Hola! Soy Jorge</h1>
               <h2>Senior Creative Technologist</h2>
-              <h5>Barcelona & Madrid</h5>
+              <h5>Barcelona &amp; Madrid</h5>
             </div>
             <div class="imatge">
-              <img src="img/section-hero.png" alt="Retrato de Jorge Carrillo" />
+              <!-- Imagen hero: candidata prioritaria para conversión a WebP -->
+              <img
+                src="img/section-hero.png"
+                alt="Retrato de Jorge Carrillo, diseñador y Creative Technologist"
+                width="800"
+                height="360"
+              />
             </div>
-            <section class="about-header">
+            <section class="about-header" aria-label="Presentación">
               <div class="about-text">
                 <h2>Intersección entre Diseño, Vídeo e Inteligencia Artificial.</h2>
                 <p>Ayudo a marcas globales a escalar su presencia visual mediante sistemas de diseño de alto rendimiento y automatización creativa.</p>
               </div>
-            
-              <aside class="about-more">
+              <aside class="about-more" aria-label="Más información">
                 <h4><a class="about-more-link-text" href="/about.html">Más sobre mí</a></h4>
-            
                 <div class="about-social">
                   <!-- iconos/links -->
                 </div>
               </aside>
             </section>
-            <section class="about-services">
+
+            <section class="about-services" aria-label="Servicios">
               <header class="services-header">
                 <h4>Qué hago</h4>
               </header>
-            
               <div class="services-grid">
                 <article class="service-item">
                   <h3 class="service-title">Escalabilidad Global</h3>
                   <p class="service-description">+10 años liderando la estrategia visual de marcas D2C líderes en mercados internacionales.</p>
                 </article>
-            
                 <article class="service-item">
                   <h3 class="service-title">Perfil Interdisciplinar</h3>
                   <p class="service-description">Experto en la convergencia de diseño de producto (UX/UI), narrativa audiovisual y desarrollo (HTML/CSS).</p>
                 </article>
-            
                 <article class="service-item">
                   <h3 class="service-title">Creative Automation</h3>
                   <p class="service-description">Optimización de flujos de trabajo mediante IA Generativa para maximizar el output sin sacrificar calidad premium.</p>
                 </article>
-            
                 <article class="service-item">
                   <h3 class="service-title">Performance Design</h3>
                   <p class="service-description">Creatividad estratégica orientada a la conversión, retención de usuario y optimización de métricas de negocio.</p>
                 </article>
               </div>
             </section>
-
           </div>
         </div>
       </div>
-      <!-- ------------WORK------------ -->
 
-      <!-- ------------COCUNAT------------ -->
+      <!-- COCUNAT -->
       <div class="categoria" id="cocunat">
         <div class="text">
           <h2>Cocunat</h2>
@@ -106,125 +146,121 @@
           <p>Uso de herramientas de IA Generativa para agilizar la producción de contenido audiovisual en mercados globales.</p>
         </div>
         <div class="contenidor-treballs">
-            <div class="treball">
-              <img src="img/inici/cocunat-image-1.png" alt="Cocunat — pieza 1" / loading="lazy" decoding="async">
-            </div>
-            <div class="treball">
-              <img src="img/inici/cocunat-image-2.png" alt="Cocunat — pieza 2" / loading="lazy" decoding="async">
-            </div>
-            <div class="treball">
-              <img src="img/inici/cocunat-image-3.png" alt="Cocunat — pieza 3" / loading="lazy" decoding="async">
-            </div>
-            <div class="treball">
-              <img src="img/inici/cocunat-image-4.png" alt="Cocunat — pieza 4" / loading="lazy" decoding="async">
-            </div>
+          <div class="treball">
+            <img src="img/inici/cocunat-image-1.png" alt="Cocunat — pieza publicitaria 1" loading="lazy" decoding="async" />
+          </div>
+          <div class="treball">
+            <img src="img/inici/cocunat-image-2.png" alt="Cocunat — pieza publicitaria 2" loading="lazy" decoding="async" />
+          </div>
+          <div class="treball">
+            <img src="img/inici/cocunat-image-3.png" alt="Cocunat — pieza publicitaria 3" loading="lazy" decoding="async" />
+          </div>
+          <div class="treball">
+            <img src="img/inici/cocunat-image-4.png" alt="Cocunat — pieza publicitaria 4" loading="lazy" decoding="async" />
+          </div>
         </div>
-
         <div class="mes">
           <a href="cocunat.html"><h5>Ver proceso y piezas</h5></a>
-          <div class="fletxa dreta"></div>
+          <div class="fletxa dreta" aria-hidden="true"></div>
         </div>
       </div>
 
-      <!-- ------------FABLETICS------------ -->
+      <!-- FABLETICS -->
       <div class="categoria" id="fabletics">
         <div class="text">
           <h2>Fabletics</h2>
-          <h3>Performance Design & UX/UI</h3>
+          <h3>Performance Design &amp; UX/UI</h3>
           <p>Diseño de landings y activos de Paid Social orientados a la conversión y optimización del customer journey.</p>
         </div>
-       <div class="contenidor-treballs">
-            <div class="treball">
-              <img src="img/inici/fabletics-image-1.png" alt="Fabletics — pieza 1" / loading="lazy" decoding="async">
-            </div>
-            <div class="treball">
-              <img src="img/inici/fabletics-image-2.png" alt="Fabletics — pieza 2" / loading="lazy" decoding="async">
-            </div>
-            <div class="treball">
-              <img src="img/inici/fabletics-image-3.png" alt="Fabletics — pieza 3" / loading="lazy" decoding="async">
-            </div>
-            <div class="treball">
-              <img src="img/inici/fabletics-image-4.png" alt="Fabletics — pieza 4" / loading="lazy" decoding="async">
-            </div>
+        <div class="contenidor-treballs">
+          <div class="treball">
+            <img src="img/inici/fabletics-image-1.png" alt="Fabletics — pieza publicitaria 1" loading="lazy" decoding="async" />
+          </div>
+          <div class="treball">
+            <img src="img/inici/fabletics-image-2.png" alt="Fabletics — pieza publicitaria 2" loading="lazy" decoding="async" />
+          </div>
+          <div class="treball">
+            <img src="img/inici/fabletics-image-3.png" alt="Fabletics — pieza publicitaria 3" loading="lazy" decoding="async" />
+          </div>
+          <div class="treball">
+            <img src="img/inici/fabletics-image-4.png" alt="Fabletics — pieza publicitaria 4" loading="lazy" decoding="async" />
+          </div>
         </div>
-
         <div class="mes">
           <a href="fabletics.html"><h5>Ver estrategia visual</h5></a>
-          <div class="fletxa dreta"></div>
+          <div class="fletxa dreta" aria-hidden="true"></div>
         </div>
       </div>
 
-      <!-- ------------ PSC------------ -->
+      <!-- PSC -->
       <div class="categoria" id="psc">
-         <div class="text">
+        <div class="text">
           <h2>PSC</h2>
           <h3>High-Impact Social Media</h3>
           <p>Narrativa visual y motion graphics de gran formato para campañas de comunicación institucional.</p>
         </div>
-         <div class="contenidor-treballs">
-            <div class="treball">
-              <img src="img/inici/psc-image-1.png" alt="PSC — pieza 1" / loading="lazy" decoding="async">
-            </div>
-            <div class="treball">
-              <img src="img/inici/psc-image-2.png" alt="PSC — pieza 2" / loading="lazy" decoding="async">
-            </div>
-            <div class="treball">
-              <img src="img/inici/psc-image-3.png" alt="PSC — pieza 3" / loading="lazy" decoding="async">
-            </div>
-            <div class="treball">
-              <img src="img/inici/psc-image-4.png" alt="PSC — pieza 4" / loading="lazy" decoding="async">
-            </div>
+        <div class="contenidor-treballs">
+          <div class="treball">
+            <img src="img/inici/psc-image-1.png" alt="PSC — pieza de comunicación 1" loading="lazy" decoding="async" />
+          </div>
+          <div class="treball">
+            <img src="img/inici/psc-image-2.png" alt="PSC — pieza de comunicación 2" loading="lazy" decoding="async" />
+          </div>
+          <div class="treball">
+            <img src="img/inici/psc-image-3.png" alt="PSC — pieza de comunicación 3" loading="lazy" decoding="async" />
+          </div>
+          <div class="treball">
+            <img src="img/inici/psc-image-4.png" alt="PSC — pieza de comunicación 4" loading="lazy" decoding="async" />
+          </div>
         </div>
-
         <div class="mes">
           <a href="psc.html"><h5>Ver proyectos de social</h5></a>
-          <div class="fletxa dreta"></div>
+          <div class="fletxa dreta" aria-hidden="true"></div>
         </div>
       </div>
-      <!-- ------------AFFINITY------------ -->
+
+      <!-- AFFINITY & BRANDING -->
       <div class="categoria" id="affinity">
         <div class="text">
-          <h2>Affinity & Branding</h2>
-          <h3>Visual Systems & Graphic Craft</h3>
+          <h2>Affinity &amp; Branding</h2>
+          <h3>Visual Systems &amp; Graphic Craft</h3>
           <p>Identidad de marca, diseño editorial y artes finales para grandes cuentas y proyectos freelance.</p>
         </div>
         <div class="contenidor-treballs">
-            <div class="treball">
-              <img src="img/inici/affinity-image-1.png" alt="Affinity — pieza 1" / loading="lazy" decoding="async">
-            </div>
-            <div class="treball">
-              <img src="img/inici/affinity-image-2.png" alt="Affinity — pieza 2" / loading="lazy" decoding="async">
-            </div>
-            <div class="treball">
-              <img src="img/inici/brand-image-1.png" alt="Brand Design — pieza 1" / loading="lazy" decoding="async">
-            </div>
-            <div class="treball">
-              <img src="img/inici/brand-image-3.png" alt="Brand Design — pieza 3" / loading="lazy" decoding="async">
-            </div>
+          <div class="treball">
+            <img src="img/inici/affinity-image-1.png" alt="Affinity — sistema visual de marca 1" loading="lazy" decoding="async" />
+          </div>
+          <div class="treball">
+            <img src="img/inici/affinity-image-2.png" alt="Affinity — sistema visual de marca 2" loading="lazy" decoding="async" />
+          </div>
+          <div class="treball">
+            <img src="img/inici/brand-image-1.png" alt="Brand Design — identidad visual 1" loading="lazy" decoding="async" />
+          </div>
+          <div class="treball">
+            <img src="img/inici/brand-image-3.png" alt="Brand Design — identidad visual 3" loading="lazy" decoding="async" />
+          </div>
         </div>
-
         <div class="mes">
           <a href="affinity.html"><h5>Ver diseño de marca</h5></a>
-          <div class="fletxa dreta"></div>
+          <div class="fletxa dreta" aria-hidden="true"></div>
         </div>
       </div>
-      
     </main>
-    <!-- ------------FOOTER------------ -->
+
+    <!-- FOOTER -->
     <footer>
       <div class="container">
-        <a href="mailto:jorgecarrillo.design@gmail.com" target="_blank" rel="noopener noreferrer"
-          ><p>jorgecarrillo.design@gmail.com</p></a
-        >
-        <p>Copyright © 2026 Jorge Carrillo</p>
-        <a href="https://goo.gl/maps/RdUe4Zqo9YeqmYZq7" target="_blank" rel="noopener noreferrer"
-          ><p>Barcelona / Madrid</p></a
-        >
+        <a href="mailto:jorgecarrillo.design@gmail.com" target="_blank" rel="noopener noreferrer">
+          <p>jorgecarrillo.design@gmail.com</p>
+        </a>
+        <p>Copyright &copy; 2026 Jorge Carrillo</p>
+        <a href="https://goo.gl/maps/RdUe4Zqo9YeqmYZq7" target="_blank" rel="noopener noreferrer" aria-label="Localización: Barcelona y Madrid">
+          <p>Barcelona / Madrid</p>
+        </a>
       </div>
     </footer>
-    <!-- ------------JS------------ -->
-    <script src="js/navegacion-scroll.js"></script>
-    <script src="js/menu-responsive.js"></script>
-    <script src="js/scroll-suave.js"></script>
+
+    <!-- JS consolidado con defer (no bloquea el render) -->
+    <script src="js/main.js" defer></script>
   </body>
 </html>

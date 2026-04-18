@@ -1,0 +1,17 @@
+{
+  "name": "Jorge Carrillo | Portfolio",
+  "short_name": "JCarrillo",
+  "description": "Portfolio de Jorge Carrillo, Senior Creative Technologist especializado en diseño digital, vídeo e Inteligencia Artificial.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F6F2E8",
+  "theme_color": "#111111",
+  "icons": [
+    {
+      "src": "/img/jorge_carrillo_favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
