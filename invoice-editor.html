@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Invoice Editor — Jorge Carrillo</title>
+<link rel="preconnect" href="https://api.fontshare.com"/>
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,400,500,600,700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream: #F5F0E8;
+  --ink: #1A1A1A;
+  --ink-mid: #3A3A3A;
+  --ink-soft: #6B6B6B;
+  --panel-bg: #EDEBE3;
+  --input-bg: #FFFFFF;
+  --input-border: rgba(26,26,26,0.2);
+  --input-focus: #1A1A1A;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'DM Mono', monospace;
+  background: var(--panel-bg);
+  color: var(--ink);
+  font-size: 13px;
+}
+
+/* ── LAYOUT ── */
+.app {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  min-height: 100vh;
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 28px 24px;
+  overflow-y: auto;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sidebar-logo {
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--cream);
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(245,240,232,0.15);
+}
+.sidebar-logo span { opacity: 0.45; font-weight: 400; font-size: 10px; display: block; letter-spacing: 0.12em; text-transform: uppercase; margin-top: 4px; }
+
+.field-group { display: flex; flex-direction: column; gap: 14px; }
+
+.field-group-title {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.45);
+  margin-bottom: 2px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.5);
+}
+
+input[type="text"], input[type="date"], input[type="number"] {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  background: rgba(245,240,232,0.07);
+  border: 1px solid rgba(245,240,232,0.15);
+  color: var(--cream);
+  padding: 8px 10px;
+  outline: none;
+  border-radius: 0;
+  width: 100%;
+  transition: border-color 0.15s;
+}
+input[type="text"]:focus, input[type="date"]:focus, input[type="number"]:focus {
+  border-color: rgba(245,240,232,0.6);
+}
+input[type="number"] { text-align: right; }
+
+/* ── LINE ITEMS ── */
+.items-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.item-row {
+  background: rgba(245,240,232,0.05);
+  border: 1px solid rgba(245,240,232,0.1);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.item-row-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+.item-delete {
+  position: absolute;
+  top: 10px; right: 10px;
+  background: none;
+  border: none;
+  color: rgba(245,240,232,0.3);
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  padding: 0;
+  transition: color 0.15s;
+}
+.item-delete:hover { color: rgba(245,240,232,0.8); }
+
+/* ── BUTTONS ── */
+.btn-add {
+  background: none;
+  border: 1px solid rgba(245,240,232,0.2);
+  color: rgba(245,240,232,0.6);
+  padding: 8px 12px;
+  font-family: 'Clash Display', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.15s;
+}
+.btn-add:hover { border-color: rgba(245,240,232,0.6); color: var(--cream); }
+
+.btn-print {
+  background: var(--cream);
+  border: none;
+  color: var(--ink);
+  padding: 12px 16px;
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 100%;
+  margin-top: auto;
+  transition: opacity 0.15s;
+}
+.btn-print:hover { opacity: 0.85; }
+
+/* ── PREVIEW AREA ── */
+.preview-area {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #D4D0C8;
+}
+
+/* ── INVOICE PAGE ── */
+.invoice-page {
+  width: 210mm;
+  min-height: 297mm;
+  background: var(--cream);
+  padding: 14mm 14mm 12mm;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.inv-rule-top { width: 100%; height: 3px; background: var(--ink); margin-bottom: 10mm; }
+
+.inv-header { display: grid; grid-template-columns: 1fr 1fr; gap: 0 6mm; margin-bottom: 10mm; }
+.inv-header-right { display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+
+.inv-logotype {
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 700;
+  font-size: 36pt;
+  letter-spacing: -0.03em;
+  line-height: 0.92;
+  color: var(--ink);
+  text-transform: uppercase;
+  margin-bottom: 6mm;
+}
+
+.inv-sender {
+  font-size: 8pt;
+  color: var(--ink-mid);
+  line-height: 1.7;
+}
+.inv-sender strong { font-weight: 500; color: var(--ink); }
+
+.inv-meta-label {
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 600;
+  font-size: 6.5pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 1mm;
+}
+.inv-meta-number {
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 600;
+  font-size: 22pt;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--ink);
+  margin-bottom: 5mm;
+}
+.inv-dates { font-size: 8pt; color: var(--ink-mid); line-height: 1.9; }
+.inv-dates strong { font-weight: 500; color: var(--ink); }
+
+.inv-rule-thin { width: 100%; height: 1px; background: var(--ink); margin-bottom: 8mm; }
+
+.inv-billto { display: grid; grid-template-columns: auto 1fr; gap: 0 8mm; margin-bottom: 10mm; align-items: start; }
+.inv-billto-label {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 6.5pt; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--ink-soft); padding-top: 2pt; white-space: nowrap;
+}
+.inv-billto-data { font-size: 8.5pt; color: var(--ink-mid); line-height: 1.7; }
+.inv-billto-data strong {
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 600; font-size: 11pt;
+  letter-spacing: -0.01em; color: var(--ink);
+  display: block; margin-bottom: 0.5mm;
+}
+
+.inv-section-label {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 6.5pt; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--ink-soft); margin-bottom: 3mm;
+}
+
+table.inv-items { width: 100%; border-collapse: collapse; }
+table.inv-items thead tr { border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+table.inv-items thead th {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 6.5pt; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-soft); padding: 2.5mm 0; text-align: left;
+}
+table.inv-items thead th.r { text-align: right; }
+table.inv-items thead th.c { text-align: center; }
+table.inv-items tbody tr { border-bottom: 1px solid rgba(26,26,26,0.15); }
+table.inv-items tbody tr:last-child { border-bottom: 1px solid var(--ink); }
+table.inv-items tbody td { padding: 3.5mm 0; font-size: 9pt; color: var(--ink-mid); vertical-align: top; }
+table.inv-items tbody td.r { text-align: right; }
+table.inv-items tbody td.c { text-align: center; }
+.inv-item-desc { font-weight: 400; color: var(--ink); }
+.inv-item-meta { font-size: 7.5pt; color: var(--ink-soft); margin-top: 0.5mm; }
+
+.inv-totals-wrap { display: flex; justify-content: flex-end; margin-top: 6mm; margin-bottom: 10mm; }
+.inv-totals { width: 68mm; }
+.inv-total-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 1.5mm 0; font-size: 8.5pt; color: var(--ink-mid);
+  border-bottom: 1px solid rgba(26,26,26,0.12);
+}
+.inv-total-row:last-of-type { border-bottom: none; }
+.inv-total-row.vat { color: var(--ink-soft); font-size: 8pt; }
+.inv-total-row.grand {
+  border-top: 2px solid var(--ink); border-bottom: none;
+  margin-top: 2mm; padding-top: 3mm;
+}
+.inv-total-row.grand .tl {
+  font-family: 'Clash Display', sans-serif; font-weight: 700;
+  font-size: 10pt; color: var(--ink);
+}
+.inv-total-row.grand .tv {
+  font-family: 'Clash Display', sans-serif; font-weight: 700;
+  font-size: 18pt; letter-spacing: -0.03em; color: var(--ink);
+}
+
+.inv-vat-note {
+  border-left: 3px solid var(--ink);
+  padding: 3mm 4mm;
+  background: rgba(26,26,26,0.04);
+  font-size: 7.5pt; color: var(--ink-mid); line-height: 1.6;
+  margin-bottom: 10mm;
+}
+.inv-vat-note strong { font-weight: 500; color: var(--ink); display: block; margin-bottom: 1mm; }
+
+.inv-spacer { flex: 1; }
+
+.inv-footer-rule { width: 100%; height: 2px; background: var(--ink); margin-bottom: 5mm; }
+.inv-footer { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0 6mm; }
+.inv-footer-label {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 6pt; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--ink-soft); margin-bottom: 2mm;
+}
+.inv-footer-val { font-size: 7.5pt; color: var(--ink-mid); line-height: 1.7; }
+.inv-footer-val strong { font-weight: 500; color: var(--ink); }
+
+/* ── PRINT ── */
+@media print {
+  html, body { background: none; }
+  .sidebar, .preview-area { display: none !important; }
+  .print-only { display: block !important; }
+  .invoice-page {
+    width: 100%; min-height: 100vh;
+    margin: 0; padding: 14mm;
+    box-shadow: none;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      Jorge Carrillo
+      <span>Invoice Generator</span>
+    </div>
+
+    <div class="field-group">
+      <div class="field-group-title">Invoice details</div>
+      <label>Invoice number<input type="text" id="f-number" value="2026-003"/></label>
+      <label>Date<input type="text" id="f-date" value="31 May 2026"/></label>
+      <label>Service period<input type="text" id="f-period" value="1 May – 31 May 2026"/></label>
+      <label>Due date<input type="text" id="f-due" value="5 June 2026"/></label>
+    </div>
+
+    <div class="field-group">
+      <div class="items-header">
+        <div class="field-group-title" style="margin-bottom:0">Line items</div>
+      </div>
+      <div id="items-container"></div>
+      <button class="btn-add" onclick="addItem()">+ Add line item</button>
+    </div>
+
+    <button class="btn-print" onclick="window.print()">Print / Export PDF ↗</button>
+  </aside>
+
+  <!-- ── PREVIEW ── -->
+  <main class="preview-area">
+    <div class="invoice-page" id="invoice">
+
+      <div class="inv-rule-top"></div>
+
+      <div class="inv-header">
+        <div>
+          <div class="inv-logotype">Jorge<br>Carrillo</div>
+          <div class="inv-sender">
+            <strong>Jorge Carrillo Morales</strong><br>
+            Carrer d'Entença, 101, 4C<br>
+            08015 Barcelona, España<br>
+            NIF: 48695280W &nbsp;|&nbsp; EU VAT: ES48695280W<br>
+            jorgecarrillo.design@gmail.com
+          </div>
+        </div>
+        <div class="inv-header-right">
+          <div class="inv-meta-label">Invoice</div>
+          <div class="inv-meta-number" id="p-number">–</div>
+          <div class="inv-dates">
+            <div><strong>Date &nbsp;</strong><span id="p-date">–</span></div>
+            <div><strong>Period &nbsp;</strong><span id="p-period">–</span></div>
+            <div><strong>Due &nbsp;</strong><span id="p-due">–</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="inv-rule-thin"></div>
+
+      <div class="inv-billto">
+        <div class="inv-billto-label">Bill to</div>
+        <div class="inv-billto-data">
+          <strong>Thrivin Fitness B.V.</strong>
+          Haverstraatpassage 62, 7511 EW Enschede, Netherlands<br>
+          KvK: 93548508 &nbsp;|&nbsp; VAT: NL866445675B01
+        </div>
+      </div>
+
+      <div class="inv-section-label">Services</div>
+
+      <table class="inv-items">
+        <thead>
+          <tr>
+            <th style="width:44%">Description</th>
+            <th class="c" style="width:12%">Qty</th>
+            <th class="r" style="width:18%">Unit price</th>
+            <th class="r" style="width:18%">Amount</th>
+          </tr>
+        </thead>
+        <tbody id="p-items"></tbody>
+      </table>
+
+      <div class="inv-totals-wrap">
+        <div class="inv-totals">
+          <div class="inv-total-row">
+            <span>Subtotal</span><span id="p-subtotal">€0.00</span>
+          </div>
+          <div class="inv-total-row vat">
+            <span>VAT (0% – Reverse Charge)</span><span>€0.00</span>
+          </div>
+          <div class="inv-total-row grand">
+            <span class="tl">Total Due</span>
+            <span class="tv" id="p-total">€0.00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="inv-vat-note">
+        <strong>Reverse Charge Notice</strong>
+        VAT reverse charge applies – Supply of services to a VAT-registered business in another EU Member State.
+        Recipient is liable for any VAT due in accordance with applicable EU VAT rules (Art. 84.Uno.2º LIVA / Art. 196 Directive 2006/112/EC).
+      </div>
+
+      <div class="inv-spacer"></div>
+
+      <div class="inv-footer-rule"></div>
+      <div class="inv-footer">
+        <div>
+          <div class="inv-footer-label">Payment</div>
+          <div class="inv-footer-val">Bank transfer by <strong id="p-due-footer">–</strong><br>Reference: invoice number</div>
+        </div>
+        <div>
+          <div class="inv-footer-label">Bank details</div>
+          <div class="inv-footer-val"><strong>ES15 1583 0001 1190 5666 9766</strong><br>Jorge Carrillo Morales</div>
+        </div>
+        <div>
+          <div class="inv-footer-label">Professional</div>
+          <div class="inv-footer-val">Senior Video Editor<br>IAE Epígrafe 751</div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script>
+const fmt = n => "€" + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,".");
+
+let items = [
+  { desc: "Video Concepts", detail: "Short-form video editing for social media", qty: 8, price: 45 },
+  { desc: "Static Concepts", detail: "Graphic / still image content", qty: 10, price: 20 },
+];
+
+function renderSidebar() {
+  const c = document.getElementById("items-container");
+  c.innerHTML = "";
+  items.forEach((item, i) => {
+    const d = document.createElement("div");
+    d.className = "item-row";
+    d.innerHTML = `
+      <button class="item-delete" onclick="removeItem(${i})">×</button>
+      <label>Description<input type="text" value="${item.desc}" oninput="items[${i}].desc=this.value;renderPreview()"/></label>
+      <label>Detail / subtitle<input type="text" value="${item.detail}" oninput="items[${i}].detail=this.value;renderPreview()"/></label>
+      <div class="item-row-grid">
+        <label>Qty<input type="number" value="${item.qty}" min="0" oninput="items[${i}].qty=+this.value;renderPreview()"/></label>
+        <label>Unit price (€)<input type="number" value="${item.price}" min="0" step="0.01" oninput="items[${i}].price=+this.value;renderPreview()"/></label>
+      </div>
+    `;
+    c.appendChild(d);
+  });
+}
+
+function addItem() {
+  items.push({ desc: "New service", detail: "", qty: 1, price: 0 });
+  renderSidebar();
+  renderPreview();
+}
+
+function removeItem(i) {
+  items.splice(i, 1);
+  renderSidebar();
+  renderPreview();
+}
+
+function renderPreview() {
+  const g = id => document.getElementById(id);
+  const val = id => document.getElementById(id).value;
+
+  g("p-number").textContent    = val("f-number");
+  g("p-date").textContent      = val("f-date");
+  g("p-period").textContent    = val("f-period");
+  g("p-due").textContent       = val("f-due");
+  g("p-due-footer").textContent = val("f-due");
+
+  const tbody = g("p-items");
+  tbody.innerHTML = "";
+  let total = 0;
+  items.forEach(item => {
+    const amount = item.qty * item.price;
+    total += amount;
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td><div class="inv-item-desc">${item.desc}</div><div class="inv-item-meta">${item.detail}</div></td>
+      <td class="c">${item.qty}</td>
+      <td class="r">${fmt(item.price)}</td>
+      <td class="r">${fmt(amount)}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  g("p-subtotal").textContent = fmt(total);
+  g("p-total").textContent    = fmt(total);
+  document.title = `Invoice ${val("f-number")} — Jorge Carrillo Morales`;
+}
+
+["f-number","f-date","f-period","f-due"].forEach(id =>
+  document.getElementById(id).addEventListener("input", renderPreview)
+);
+
+renderSidebar();
+renderPreview();
+</script>
+</body>
+</html>
