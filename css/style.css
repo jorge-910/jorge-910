@@ -355,6 +355,7 @@ header .container img {
 
 .hola .imatge img {
   width: 100%;
+  height: auto;
 }
 
 .hola .text {
