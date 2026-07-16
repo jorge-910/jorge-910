@@ -108,6 +108,7 @@ p {
   grid-template-columns: var(--columnas_inicio);
   grid-template-areas:
     "intro intro intro intro intro"
+    "thrivin thrivin thrivin thrivin thrivin"
     "cocunat cocunat cocunat cocunat cocunat"
     "fabletics fabletics fabletics fabletics fabletics"
     "psc psc psc psc psc"
@@ -542,6 +543,10 @@ header .container img {
 }
 
 /* ------ CONTENIDO ------ */
+
+#thrivin {
+  grid-area: thrivin;
+}
 
 #cocunat {
   grid-area: cocunat;
