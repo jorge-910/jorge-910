@@ -629,7 +629,8 @@ header .container img {
   overflow: hidden;
 }
 
-.treball img {
+.treball img,
+.treball video {
   object-fit: contain;
   width: 100%;
 }
